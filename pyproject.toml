@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-framework"
+version = "0.1.0"
+description = "A local quantitative analysis framework for A-share research and backtesting."
+readme = "README.md"
+requires-python = ">=3.14,<3.15"
+authors = [
+  { name = "Quant Framework" }
+]
+dependencies = [
+  "akshare>=1.18.0",
+  "baostock>=0.8.9",
+  "backtrader>=1.9.78.123",
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "pyarrow>=14",
+  "pyyaml>=6.0",
+  "scipy>=1.16",
+  "schedule>=1.2",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+]
+
+[project.scripts]
+quant-framework = "quant_framework.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

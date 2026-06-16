@@ -1,0 +1,14 @@
+symbol: "000001"
+start_date: "2020-01-01"
+end_date: "2024-12-31"
+cash: 100000
+commission: 0.0003
+slippage: 0.0001
+strategy:
+  name: "turtle"
+  params:
+    entry_window: 20
+    exit_window: 10
+    atr_window: 20
+    risk_fraction: 0.01
+    max_units: 4

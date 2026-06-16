@@ -1,0 +1,11 @@
+,value
+t_statistic,
+t_p_value,
+t_mean_return,0.0
+t_sample_size,20
+t_significant,False
+bootstrap_mean_return,0.0
+bootstrap_lower_bound,0.0
+bootstrap_upper_bound,0.0
+bootstrap_confidence_level,0.95
+bootstrap_n_resamples,1000

@@ -1,0 +1,33 @@
+import baostock as bs
+import pandas as pd
+
+print("尝试连接 Baostock 服务器...")
+lg = bs.login()
+if lg.error_code != '0':
+    print("登录失败，错误代码：", lg.error_code)
+else:
+    print("🎉 Baostock 登录成功！")
+
+# 获取平安银行（sz.000001）前复权数据，同时包含 peTTM 和 pbMRQ
+print("正在抓取包含估值的日线数据...")
+rs = bs.query_history_k_data_plus(
+    "sz.000001",
+    "date,code,open,high,low,close,volume,peTTM,pbMRQ",
+    start_date='2024-05-01', 
+    end_date='2024-05-10',
+    frequency="d", 
+    adjustflag="2" # 2代表前复权
+)
+
+if rs.error_code == '0':
+    data_list = []
+    while (rs.error_code == '0') & rs.next():
+        data_list.append(rs.get_row_data())
+    
+    df = pd.DataFrame(data_list, columns=rs.fields)
+    print("✅ 抓取成功！数据如下：")
+    print(df)
+else:
+    print("抓取失败，错误代码：", rs.error_code, rs.error_msg)
+
+bs.logout()

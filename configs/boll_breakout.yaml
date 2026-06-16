@@ -1,0 +1,12 @@
+symbol: "000001"
+start_date: "2020-01-01"
+end_date: "2024-12-31"
+cash: 100000
+commission: 0.0003
+slippage: 0.0001
+strategy:
+  name: "boll_breakout"
+  params:
+    period: 20
+    devfactor: 2.0
+    position_size: 0.95

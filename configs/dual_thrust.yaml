@@ -1,0 +1,13 @@
+symbol: "000001"
+start_date: "2020-01-01"
+end_date: "2024-12-31"
+cash: 100000
+commission: 0.0003
+slippage: 0.0001
+strategy:
+  name: "dual_thrust"
+  params:
+    window_size: 5
+    k1: 0.2
+    k2: 0.5
+    position_size: 0.95
